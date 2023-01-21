@@ -102,7 +102,7 @@ type bang_var =
 ;;
 
 type loc =
-   Lexing.position sexp_opaque
+   (Lexing.position [@sexp.opaque])
 [@@deriving sexp_of]
 ;;
 

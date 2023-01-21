@@ -72,7 +72,7 @@ type tagged =
 
 type state =
   { env : (Ast.var, tagged) List.Assoc.t
-  ; used_vars : (Ast.var, Ast.loc, Ast.comparator_witness) Map.t sexp_opaque
+  ; used_vars : ((Ast.var, Ast.loc, Ast.comparator_witness) Map.t [@sexp.opaque])
   ; fc_vars  : Ast.var list
   ; counter : int
   }
@@ -414,7 +414,7 @@ let%test_module "Test" =
     (* ignore irrelevant location information for these tests *)
     type nonrec tagged = tagged =
       | Not_used of not_used
-      | Used of Ast.loc sexp_opaque
+      | Used of (Ast.loc [@sexp.opaque])
       | Intuition of wf_lin
     [@@deriving sexp_of]
     ;;

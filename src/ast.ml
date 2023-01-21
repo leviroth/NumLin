@@ -450,25 +450,25 @@ let line_col (loc : loc) =
 ;;
 
 type exp =
-  | Prim of loc sexp_opaque * prim
-  | Var of loc sexp_opaque * var
-  | Unit_I of loc sexp_opaque
-  | True of loc sexp_opaque
-  | False of loc sexp_opaque
-  | Int_I of loc sexp_opaque * int
-  | Elt_I of loc sexp_opaque * float
-  | Pair_I of loc sexp_opaque * exp * exp
-  | Bang_I of loc sexp_opaque * exp
-  | Spc of loc sexp_opaque * exp * fc
-  | App of loc sexp_opaque * exp * exp
-  | Unit_E of loc sexp_opaque * exp * exp
-  | Bang_E of loc sexp_opaque * var * exp * exp
-  | Pair_E of loc sexp_opaque * var * var * exp * exp
-  | Fix of loc sexp_opaque * var * var * lin * lin * exp
-  | If of loc sexp_opaque * exp * exp * exp
-  | Gen of loc sexp_opaque * var * exp
-  | Lambda of loc sexp_opaque * var * lin * exp
-  | Let of loc sexp_opaque * var * exp * exp
+  | Prim of (loc [@sexp.opaque]) * prim
+  | Var of (loc [@sexp.opaque]) * var
+  | Unit_I of (loc [@sexp.opaque])
+  | True of (loc [@sexp.opaque])
+  | False of (loc [@sexp.opaque])
+  | Int_I of (loc [@sexp.opaque]) * int
+  | Elt_I of (loc [@sexp.opaque]) * float
+  | Pair_I of (loc [@sexp.opaque]) * exp * exp
+  | Bang_I of (loc [@sexp.opaque]) * exp
+  | Spc of (loc [@sexp.opaque]) * exp * fc
+  | App of (loc [@sexp.opaque]) * exp * exp
+  | Unit_E of (loc [@sexp.opaque]) * exp * exp
+  | Bang_E of (loc [@sexp.opaque]) * var * exp * exp
+  | Pair_E of (loc [@sexp.opaque]) * var * var * exp * exp
+  | Fix of (loc [@sexp.opaque]) * var * var * lin * lin * exp
+  | If of (loc [@sexp.opaque]) * exp * exp * exp
+  | Gen of (loc [@sexp.opaque]) * var * exp
+  | Lambda of (loc [@sexp.opaque]) * var * lin * exp
+  | Let of (loc [@sexp.opaque]) * var * exp * exp
 [@@deriving sexp_of]
 ;;
 
